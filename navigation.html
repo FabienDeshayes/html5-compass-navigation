@@ -20,34 +20,28 @@
 				width: 100%;
 			}
 			
-			.center
-			{
-				margin: auto;
-				position: absolute;
-				top: 0px;
-				bottom: 0px;
-				left: 0px;
-				right: 0px;
-			}
+            .compass
+            {
+                top: 110px;
+                left: 110px;
+            }
 			
 		</style>
+			
 	</head>
 	
 	<body>
 
 		<!-- background holder - width and height are representative of a drawing surface -->
 		<canvas class="fullwidth" height="500" width="500">
-			Your browser doesn't support HTML5 canvas tag. Well, can't blame you for that.
+			Your browser doesn't support the HTML5 canvas tag. Well, can't blame you for that.
 		</canvas>
 		
-
-		<!-- compass holder -->
-		<canvas class="center" height="400" width="600">
-			Your browser doesn't support HTML5 canvas tag. Well, can't blame you for that.
-		</canvas>
+		<nav id="compass"></nav>
 		
-		<script src="js/light-background.js" type="text/javascript"></script>
-		<script src="js/compass.js" type="text/javascript"></script>
+		<script src="js/lib/kinetic-v2.3.0.js"></script>	
+		<script src="js/light-background.js"></script>
+		<script src="js/compass.js"></script>
 		
 
 	</body>
