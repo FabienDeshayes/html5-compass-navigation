@@ -54,7 +54,6 @@ Interactive.Button.prototype.innerDraw = function(state){
 	
 	context.closePath();
 	context.fill();
-	context.stroke();
 	
     context.restore();
 };
