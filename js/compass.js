@@ -9,11 +9,11 @@ const COMPASS_CENTER_RADIUS = width / 18;
 const PADDING = COMPASS_CENTER_RADIUS / 4;
 const ARROWS_PADDING = COMPASS_CENTER_RADIUS + PADDING;
 
-var leftArrow = new Interactive.Button(prepareHorizontalArrow, drawLeftArrow);
-var rightArrow = new Interactive.Button(prepareHorizontalArrow, drawRightArrow);
-var topArrow = new Interactive.Button(prepareVerticalArrow, drawTopArrow);
-var bottomArrow = new Interactive.Button(prepareVerticalArrow, drawBottomArrow);
-var compassCenter = new Interactive.Button(prepareCenter, drawCenter);
+var leftArrow = new Interactive.Button(prepareHorizontalArrow, drawLeftArrow, leftArrow_clickHandler);
+var rightArrow = new Interactive.Button(prepareHorizontalArrow, drawRightArrow, rightArrow_clickHandler);
+var topArrow = new Interactive.Button(prepareVerticalArrow, drawTopArrow, topArrow_clickHandler);
+var bottomArrow = new Interactive.Button(prepareVerticalArrow, drawBottomArrow, bottomArrow_clickHandler);
+var compassCenter = new Interactive.Button(prepareCenter, drawCenter, center_clickHandler);
 
 leftArrow.shape.x = docWidth / 2 - width / 2;
 leftArrow.shape.y = docHeight / 2 - height / 2;
@@ -31,6 +31,12 @@ stage.add(rightArrow.shape);
 stage.add(bottomArrow.shape);
 stage.add(topArrow.shape);
 stage.add(compassCenter.shape);
+
+leftArrow.shape.canvas.className = "center";
+rightArrow.shape.canvas.className = "center";
+topArrow.shape.canvas.className = "center";
+bottomArrow.shape.canvas.className = "center";
+compassCenter.shape.canvas.className = "center";
 
 function prepareHorizontalArrow(state)
 {
@@ -111,18 +117,18 @@ function prepareCenter(state)
 	switch (state)
 	{
 		case "down":
-			gradient.addColorStop(0.3, "#E6E000");
-			gradient.addColorStop(0.7, "#E8B61E");
+			gradient.addColorStop(0.2, "#E6E000");
+			gradient.addColorStop(0.8, "#E8B61E");
 			break;
 		case "over":
 		case "up":
-			gradient.addColorStop(0.3, "#fdf832");
-			gradient.addColorStop(0.7, "#ffcf3f");
+			gradient.addColorStop(0.2, "#fdf832");
+			gradient.addColorStop(0.8, "#ffcf3f");
 			break;
 		case "out":
 		default:
-			gradient.addColorStop(0.3, "#faf100");
-			gradient.addColorStop(0.7, "#ffc821");
+			gradient.addColorStop(0.2, "#faf100");
+			gradient.addColorStop(0.8, "#ffc821");
 			break;
 	}
 	
@@ -181,4 +187,43 @@ function drawCenter(state)
 	var context = this.getContext();
 
 	context.arc(width / 2, height / 2, COMPASS_CENTER_RADIUS, 0, 2 * Math.PI, false);
+}
+
+function leftArrow_clickHandler(event)
+{
+	applyClassNameOnCompass("right");
+}
+
+function rightArrow_clickHandler(event)
+{
+	applyClassNameOnCompass("left");
+}
+
+function topArrow_clickHandler(event)
+{
+	applyClassNameOnCompass("bottom");
+}
+
+function bottomArrow_clickHandler(event)
+{
+	applyClassNameOnCompass("top");
+}
+
+function center_clickHandler(event)
+{
+	applyClassNameOnCompass("center");
+}
+
+function applyClassNameOnCompass(newClassName)
+{
+	var canvas = document.getElementsByTagName('canvas')[2];
+	canvas.className = newClassName;
+	var canvas = document.getElementsByTagName('canvas')[3];
+	canvas.className = newClassName;
+	var canvas = document.getElementsByTagName('canvas')[4];
+	canvas.className = newClassName;
+	var canvas = document.getElementsByTagName('canvas')[5];
+	canvas.className = newClassName;
+	var canvas = document.getElementsByTagName('canvas')[6];
+	canvas.className = newClassName;
 }

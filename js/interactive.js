@@ -4,7 +4,7 @@ var Interactive = {};
  * Button
  */
  
-Interactive.Button = function(prepare, drawButton){
+Interactive.Button = function(prepare, drawButton, clickCallback){
 	this.shape = new Kinetic.Shape(this.innerDraw);
 	this.shape.prepare = prepare;
 	this.shape.drawButton = drawButton;
@@ -32,6 +32,7 @@ Interactive.Button = function(prepare, drawButton){
 			that.state = "up";
 			that.shape.draw("up");
 		});
+	this.shape.addEventListener("click", clickCallback);
 };
 
 Interactive.Button.prototype.innerDraw = function(state){

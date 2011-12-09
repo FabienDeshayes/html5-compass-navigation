@@ -9,6 +9,8 @@
 			body
 			{
   				background: #1A2028;
+  				overflow-y:hidden;
+  				overflow-x:hidden;
 			}
 
 			.fullwidth
@@ -20,11 +22,42 @@
 				width: 100%;
 			}
 			
-            .compass
-            {
-                top: 110px;
-                left: 110px;
-            }
+			#compass canvas
+			{
+				-webkit-transition-property: margin-left, margin-top;
+				-webkit-transition-duration: 500ms;
+				-webkit-transition-timing-function: ease-in-out;
+			}
+			
+			#compass canvas.center
+			{
+				margin-left: 0;
+				margin-top: 0;
+			}
+			
+			#compass canvas.left
+			{
+				margin-left: -750px;
+				margin-top: 0;
+			}
+			
+			#compass canvas.right
+			{
+				margin-left: 750px;
+				margin-top: 0;
+			}
+			
+			#compass canvas.top
+			{
+				margin-left: 0;
+				margin-top: -470px;
+			}
+			
+			#compass canvas.bottom
+			{
+				margin-left: 0;
+				margin-top: 470px;
+			}
 			
 		</style>
 			
