@@ -57,7 +57,7 @@ function prepareHorizontalArrow(state)
 			gradient.addColorStop(0.495, "#ffcf3f");
 			gradient.addColorStop(0.5, "black");
 			gradient.addColorStop(0.51, "#fdf832");
-			context.shadowBlur = 5;
+			context.shadowBlur = 8;
 			break;
 		case "out":
 		default:
@@ -92,7 +92,7 @@ function prepareVerticalArrow(state)
 			gradient.addColorStop(0.495, "#ffcf3f");
 			gradient.addColorStop(0.5, "black");
 			gradient.addColorStop(0.51, "#fdf832");
-			context.shadowBlur = 5;
+			context.shadowBlur = 8;
 			break;
 		case "out":
 		default:
@@ -119,22 +119,23 @@ function prepareCenter(state)
 		case "down":
 			gradient.addColorStop(0.2, "#E6E000");
 			gradient.addColorStop(0.8, "#E8B61E");
+			context.shadowBlur = 4;
 			break;
 		case "over":
 		case "up":
 			gradient.addColorStop(0.2, "#fdf832");
 			gradient.addColorStop(0.8, "#ffcf3f");
+			context.shadowBlur = 4;
 			break;
 		case "out":
 		default:
 			gradient.addColorStop(0.2, "#faf100");
 			gradient.addColorStop(0.8, "#ffc821");
+			context.shadowBlur = 2;
 			break;
 	}
 	
 	context.fillStyle = gradient;
-
-	context.shadowBlur = 2;
 	context.shadowColor = "black";
 }
 
