@@ -13,7 +13,7 @@ function drawBackground()
 		var canvasSize = canvas.width; // width must be the same as the height
 		var canvasCenter = canvasSize / 2; 
 		var circleSize = canvasSize;
-		var theme = blueTheme(); // pick the color set
+		var theme = greyTheme(); // pick the color set
 	
 		// Create first radial gradient
 		var gradient = context.createRadialGradient(canvasCenter, canvasCenter, 0, canvasCenter, canvasCenter, circleSize); 
@@ -52,6 +52,36 @@ function blueTheme()
 		'rgba(0, 186, 241, 0.8)',
 		'rgba(55, 68, 80, 0)',
 		'rgba(0, 252, 255, 0.32)'
+	];
+}
+
+function darkBlueTheme()
+{
+	return [
+		'rgba(8, 99, 152, 0.95)',
+		'rgba(0, 43, 180, 0.8)',
+		'rgba(55, 68, 80, 0)',
+		'rgba(0, 190, 255, 0.32)'
+	];
+}
+
+function brightTheme()
+{
+	return [
+		'rgba(128, 181, 131, 0.95)',
+		'rgba(180, 178, 133, 0.8)',
+		'rgba(55, 68, 80, 0)',
+		'rgba(255, 204, 141, 0.32)'
+	];
+}
+
+function greyTheme()
+{
+	return [
+		'rgba(105, 120, 129, 0.95)',
+		'rgba(54, 63, 69, 0.8)',
+		'rgba(26, 24, 21, 0)',
+		'rgba(124, 150, 160, 0.32)'
 	];
 }
 
