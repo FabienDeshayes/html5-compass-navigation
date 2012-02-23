@@ -1,5 +1,5 @@
-var docWidth = document.width - 20;
-var docHeight = document.height - 20;
+var docWidth = window.innerWidth;
+var docHeight = window.innerHeight;
 var width = 600;
 var height = 400;
 
